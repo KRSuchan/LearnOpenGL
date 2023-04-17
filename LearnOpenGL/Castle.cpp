@@ -1,7 +1,10 @@
+/*
 #include <glut.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <stdio.h>
+#include <math.h>
+#define PI = 3.14
 
 GLint xValue = 0;
 GLint yValue = 0;
@@ -11,12 +14,21 @@ GLint clickDown = 0;
 GLint fixX = 0;
 GLint fixY = 0;
 
+GLfloat lookatX = 0.0;
+GLfloat lookatY = 0.0;
+GLfloat lookatZ = 1.0;
+
+GLfloat radius = 1.0;
+GLfloat theta = 0.0;
+
 void MyDisplay()
 {
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
+	gluLookAt(lookatX, lookatY, lookatZ, 0.0,0.0,0.0, 0.0,1.0,0.0);
 
 	glRotatef(xValue, 1.0, 0.0, 0.0);
 	glRotatef(yValue, 0.0, 1.0, 0.0);
@@ -32,38 +44,38 @@ void MyDisplay()
 	glEnd();
 
 	glPushMatrix();
-		glColor3f(1, 0, 0);
-		glTranslatef(0.1, 0.0, 0);
-		glutSolidCube(0.2);
-			glPushMatrix();
-			glColor3f(0, 0, 1);
-			glTranslatef(0.2, 0.0, 0);
-			glutSolidCube(0.2);
-				glPushMatrix();
-				glColor3f(1.0, 1.0, 0);
-				glTranslatef(0, 0.1, 0);
-				glRotatef(-90, 1, 0, 0);
-				glutSolidCone(0.1, 0.2, 12, 12);
-				glPopMatrix();
-			glPopMatrix();
-		glPopMatrix();
+	glColor3f(1, 0, 0);
+	glTranslatef(0.1, 0.0, 0);
+	glutSolidCube(0.2);
+	glPushMatrix();
+	glColor3f(0, 0, 1);
+	glTranslatef(0.2, 0.0, 0);
+	glutSolidCube(0.2);
+	glPushMatrix();
+	glColor3f(1.0, 1.0, 0);
+	glTranslatef(0, 0.1, 0);
+	glRotatef(-90, 1, 0, 0);
+	glutSolidCone(0.1, 0.2, 12, 12);
 	glPopMatrix();
-		glPushMatrix();
-		glColor3f(1, 0, 0);
-		glTranslatef(-0.1, 0.0, 0);
-		glutSolidCube(0.2);
-			glPushMatrix();
-			glColor3f(0, 0, 1);
-			glTranslatef(-0.2, 0.0, 0);
-			glutSolidCube(0.2);
-				glPushMatrix();
-				glColor3f(1.0, 1.0, 0);
-				glTranslatef(0, 0.1, 0);
-				glRotatef(-90, 1, 0, 0);
-				glutSolidCone(0.1, 0.2, 12, 12);
-				glPopMatrix();
-			glPopMatrix();
-		glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+	glPushMatrix();
+	glColor3f(1, 0, 0);
+	glTranslatef(-0.1, 0.0, 0);
+	glutSolidCube(0.2);
+	glPushMatrix();
+	glColor3f(0, 0, 1);
+	glTranslatef(-0.2, 0.0, 0);
+	glutSolidCube(0.2);
+	glPushMatrix();
+	glColor3f(1.0, 1.0, 0);
+	glTranslatef(0, 0.1, 0);
+	glRotatef(-90, 1, 0, 0);
+	glutSolidCone(0.1, 0.2, 12, 12);
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
 	glPopMatrix();
 
 	glFlush();
@@ -118,7 +130,16 @@ void MyMouseMove(GLint X, GLint Y)
 
 	glutPostRedisplay();
 }
+void MyTimer(int Value)
+{	
+	lookatX = radius * cos(theta * 3.14 / 180.0);
+	lookatZ = radius * sin(theta * 3.14 / 180.0);
+	lookatY = 1.0;
+	theta += 1;
 
+	glutPostRedisplay();
+	glutTimerFunc(40, MyTimer, 1);
+}
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -126,21 +147,25 @@ int main(int argc, char** argv)
 
 	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH);
 	//glutInitDisplayMode(GLUT_RGB);
-	
+
 	glutCreateWindow("OpenGL Example");
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-1.0, 1.0, -1.0, 1.0, -2.0, 2.0); // 시점과 거리설정 -2.0~ 2.0
+
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-	
+
 	glEnable(GL_DEPTH_TEST);
 
-	glMatrixMode(GL_PROJECTION); // 차후 설명
-	glLoadIdentity();
-	glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
-	
 	glutDisplayFunc(MyDisplay);
 	glutKeyboardFunc(MyKeyboard);
 	glutMouseFunc(MyMouseClick);
 	glutMotionFunc(MyMouseMove);
-	
+	glutTimerFunc(40, MyTimer, 1);
+
+
 	glutMainLoop();
 	return 0;
 }
+*/

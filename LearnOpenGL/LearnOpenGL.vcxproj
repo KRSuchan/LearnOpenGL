@@ -133,13 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnalogClock.cpp" />
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="LookAt.cpp" />
     <ClCompile Include="Events_Test.cpp" />
     <ClCompile Include="Events_Test_AnswerSheet.cpp" />
     <ClCompile Include="LearnOpenGL.cpp" />
     <ClCompile Include="Matrix_RST.cpp" />
     <ClCompile Include="Coordinate_Trans.cpp" />
-    <ClCompile Include="Trans_Matrix_Stack_Castle.cpp" />
+    <ClCompile Include="Castle.cpp" />
+    <ClCompile Include="Robot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BunnyModel.h" />

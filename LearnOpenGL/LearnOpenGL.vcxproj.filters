@@ -18,7 +18,7 @@
     <ClCompile Include="LearnOpenGL.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="AnalogClock.cpp">
+    <ClCompile Include="Clock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Events_Test.cpp">
@@ -33,7 +33,13 @@
     <ClCompile Include="Coordinate_Trans.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Trans_Matrix_Stack_Castle.cpp">
+    <ClCompile Include="Castle.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LookAt.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

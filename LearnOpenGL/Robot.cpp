@@ -11,6 +11,15 @@ void drawHead();
 void drawBody();
 void MyDisplay();
 
+void MyKeyboard(unsigned char KeyPressed, int X, int Y)
+{
+	switch (KeyPressed) {
+	case 'Q': case 'q':
+		exit(0); break;
+	}
+	glutPostRedisplay();
+}
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -27,6 +36,7 @@ int main(int argc, char** argv)
 	glEnable(GL_DEPTH_TEST);
 
 	glutDisplayFunc(MyDisplay);
+	glutKeyboardFunc(MyKeyboard);
 	glutMainLoop();
 	return 0;
 }
@@ -37,7 +47,7 @@ void MyDisplay()
 	glLoadIdentity();
 	// Test Enable or Disable
 	// 카메라 셋팅(시점조절관련 간단히 타이핑해볼것).
-	// gluLookAt(3, 3, 3, 0, 0, 0, 0, 1, 0);
+	gluLookAt(3, 3, 3, 0, 0, 0, 0, 1, 0);
 	
 	// Axis
 	glBegin(GL_LINES);

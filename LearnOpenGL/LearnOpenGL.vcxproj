@@ -136,6 +136,7 @@
     <ClCompile Include="BunnyModel.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Double_Buffering_BunnyModel.cpp" />
+    <ClCompile Include="Lighting_1.cpp" />
     <ClCompile Include="LookAt.cpp" />
     <ClCompile Include="Events_Test.cpp" />
     <ClCompile Include="Events_Test_AnswerSheet.cpp" />
@@ -149,6 +150,8 @@
     <ClCompile Include="Projection_Bunny.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="Visble_Poly.cpp" />
+    <ClCompile Include="Visible.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BunnyModel.h" />

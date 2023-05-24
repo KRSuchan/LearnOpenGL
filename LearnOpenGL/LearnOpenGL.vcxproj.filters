@@ -63,6 +63,15 @@
     <ClCompile Include="Prj&amp;FOV_Bunny_Key_Control.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Visible.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Visble_Poly.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Lighting_1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BunnyModel.h">
